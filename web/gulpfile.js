@@ -89,7 +89,7 @@ var handlebarOpts = {
   helpers: {
     version: function (path, context) {
       if (RELEASE) {
-        var commit = context.data.root['commit'];
+        var commit = context.data.root.commit;
         return path + '?' + commit;
       } else {
         return path;
@@ -226,9 +226,9 @@ gulp.task('bundle', function (cb) {
   src.scripts = ['src/**/*{.js,.jsx}', 'config/settings.js'];
   compiler.run(function (err, stats) {
     if (err) {
-      throw new gutil.PluginError("bundle", err);
+      throw new gutil.PluginError('bundle', err);
     }
-    gutil.log("[bundle]", stats.toString({
+    gutil.log('[bundle]', stats.toString({
       modules: false,
       assets: false,
       chunks: false,
